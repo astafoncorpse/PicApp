@@ -9,6 +9,7 @@
             <Label x:Name="lPin"
                    FontSize="Title"
                    Text="Введите PIN-код для регистации:"
+                   TextColor="Aquamarine"
                    HorizontalOptions="Fill" 
                    VerticalOptions="Center"
                    Padding="20,0"/>
@@ -16,8 +17,8 @@
                    x:Name="Password" 
                    MaxLength="4"
                    Margin ="20,0"
-                   TextColor="Black" 
                    Placeholder="PIN"
+                   TextColor="White" 
                    HorizontalOptions="Fill" 
                    VerticalOptions="Center"
                    TextChanged="Password_TextChanged"/>
@@ -31,9 +32,10 @@
                    Padding="20,0"/>
             <Button x:Name="endPwdButton" 
                     IsEnabled="False"
-                    Text="Войти" 
+                    Text="Войти" CornerRadius="30"
                     Clicked="endPwdButton_Click"
                     Margin="20,0"/>
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

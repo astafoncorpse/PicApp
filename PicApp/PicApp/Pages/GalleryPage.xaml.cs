@@ -31,7 +31,7 @@ namespace PicApp.Pages
             LoadPictureList();
         }
 
-        private async void LoadPictureList()
+        private  void LoadPictureList()
         {
             if (Device.RuntimePlatform != Device.Android || !Directory.Exists(path))
                 return;

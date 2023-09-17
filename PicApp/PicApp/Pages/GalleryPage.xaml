@@ -26,11 +26,11 @@
             <Grid ColumnDefinitions="Auto" 
                   RowDefinitions="45"
                   Margin="10,15">
-                <Button Text="Открыть"
+                <Button Text="Открыть" CornerRadius="30"
                         Clicked="OpenPicrureButton_Clicked"
                         Grid.Column="1" 
                         HorizontalOptions="FillAndExpand"/>
-                <Button Text="❌Удалить"
+                <Button Text="❌Удалить" CornerRadius="30"
                         Clicked="RemovePictureButton_Clicked"
                         Grid.Column="2" 
                         HorizontalOptions="FillAndExpand"/>
