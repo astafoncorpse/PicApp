@@ -12,41 +12,48 @@ namespace PicApp.Pages
 
     public partial class LoginPage : ContentPage
     {
+        private string _password;
         public LoginPage()
         {
             InitializeComponent();
-            EntryPinMessage.Text = Preferences.ContainsKey("Pin") ? "Введите PIN" : "Придумайте PIN";
-
-        }
-        private async void OnEnterPinAsync(object sender, EventArgs e)
-        {
-            // нехорошо запихивать сюда логику, стоит перенести ее в другое место. но пусть пока будет так.. 
-            if (!Preferences.ContainsKey("Pin"))
+            _password = Preferences.Get("Password", String.Empty);
+            if (_password != string.Empty)
             {
-                //Не будем проверять ПИН на пустоту и выполнять прочие проверки
-                Preferences.Set("Pin", EnteredPin.Text);
-                await DisplayAlert("Saved", "PIN " + EnteredPin.Text + " saved", "OK");
-                EntryPinMessage.Text = "Введите PIN";
+                lPin.Text = "Введите пин-код для входа:";
             }
-            else if (Preferences.Get("Pin", "") == EnteredPin.Text)
+        }
+
+        private void endPwdButton_Click(object sender, EventArgs e)
+        {
+            string enterPwd = Password.Text;
+            if (_password == string.Empty)
             {
-                EnteredPin.Text = "";
-                await Navigation.PushAsync(new ImageList());
+                Preferences.Set("Password", enterPwd);
             }
             else
             {
-                if (EnteredPin.Text == "resetpin" + DateTime.Now.ToString("MM"))
+                if (_password != Password.Text)
                 {
-                    await DisplayAlert("PIN Reset", "Create a new PIN", "OK");
-                    Preferences.Remove("Pin");
-                    EntryPinMessage.Text = "Создайте PIN";
-                }
-                else
-                {
-                    await DisplayAlert("Incorrect", "Incorrect PIN Entered", "OK");
+                    lInfoMsg.Text = "Неверный ПИН-код";
+                    return;
                 }
             }
-            EnteredPin.Text = "";
+
+            Navigation.PushAsync(new GalleryPage());
+        }
+
+        private void Password_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (Password.Text.Length != 4)
+            {
+                lInfoMsg.Text = "ПИН-код должен состоять из 4 символов";
+                endPwdButton.IsEnabled = false;
+            }
+            else
+            {
+                endPwdButton.IsEnabled = true;
+                lInfoMsg.Text = string.Empty;
+            }
         }
     }
 }

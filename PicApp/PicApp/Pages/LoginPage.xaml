@@ -5,12 +5,35 @@
              BackgroundImageSource="HomeBackground.jpg"
               NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
-        <StackLayout VerticalOptions="Center" HorizontalOptions="Center" x:Name="stackLayout">
-            <Label x:Name="EntryPinMessage"  Text = "Введите PIN" FontSize ="20" Margin="20,0,0,0"/>
-                <Entry x:Name = "EnteredPin"  Text = "" IsPassword="True"  HorizontalTextAlignment="Center"  />
-                <Button x:Name = "UsersPin"
-                Text = "Enter"
-                Clicked = "OnEnterPinAsync"/>
+        <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+            <Label x:Name="lPin"
+                   FontSize="Title"
+                   Text="Введите PIN-код для регистации:"
+                   HorizontalOptions="Fill" 
+                   VerticalOptions="Center"
+                   Padding="20,0"/>
+            <Entry IsPassword="True" 
+                   x:Name="Password" 
+                   MaxLength="4"
+                   Margin ="20,0"
+                   TextColor="Black" 
+                   Placeholder="PIN"
+                   HorizontalOptions="Fill" 
+                   VerticalOptions="Center"
+                   TextChanged="Password_TextChanged"/>
+            <Label x:Name="lInfoMsg"
+                   FontSize="Small"
+                   TextColor="Red"
+                   VerticalTextAlignment="Center" 
+                   HorizontalTextAlignment="Center"
+                   HorizontalOptions="Fill" 
+                   VerticalOptions="Center"
+                   Padding="20,0"/>
+            <Button x:Name="endPwdButton" 
+                    IsEnabled="False"
+                    Text="Войти" 
+                    Clicked="endPwdButton_Click"
+                    Margin="20,0"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
