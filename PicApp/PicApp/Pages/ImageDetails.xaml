@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PicApp.Pages.ImageDetails"
+              Title="ImageDetails">
+    >
+    <ContentPage.Content>
+        <StackLayout>
+            <Image x:Name="img" />
+            <Label x:Name="path"/>
+            <Label x:Name="dt"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

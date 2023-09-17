@@ -1,12 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="PicApp.Pages.LoginPage">
+             x:Class="PicApp.Pages.LoginPage"
+             BackgroundImageSource="HomeBackground.jpg">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout VerticalOptions="Center" HorizontalOptions="Center" x:Name="stackLayout">
+            <Label x:Name="EntryPinMessage"  Text = "Введите PIN" FontSize ="20" Margin="20,0,0,0"/>
+                <Entry x:Name = "EnteredPin"  Text = "" IsPassword="True"  HorizontalTextAlignment="Center"  />
+                <Button x:Name = "UsersPin"
+                Text = "Enter"
+                Clicked = "OnEnterPinAsync"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
