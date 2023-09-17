@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PicApp.Pages.LoginPage"
-             BackgroundImageSource="HomeBackground.jpg">
+             BackgroundImageSource="HomeBackground.jpg"
+              NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
         <StackLayout VerticalOptions="Center" HorizontalOptions="Center" x:Name="stackLayout">
             <Label x:Name="EntryPinMessage"  Text = "Введите PIN" FontSize ="20" Margin="20,0,0,0"/>
